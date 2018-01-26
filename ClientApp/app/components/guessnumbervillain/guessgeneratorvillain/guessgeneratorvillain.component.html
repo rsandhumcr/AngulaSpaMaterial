@@ -1,0 +1,42 @@
+﻿<form [formGroup]="generationForm" class="" (ngSubmit)="processNumber()" novalidate="">
+    <div class="row padding5">
+        <div class="col-sm-2">
+            <label class="labeltext">User name</label>
+        </div>
+        <div class="col-sm-9">
+            <input class="userinput form-control" formControlName="username" id="username" type="text" placeholder="Enter your name" />
+            <div class="errormsg" *ngIf="generationForm.controls?.username.invalid && generationForm.controls?.username.dirty ">
+                <em *ngIf="generationForm.controls?.username.errors?.required">Username is required</em>
+            </div>
+
+        </div>
+    </div>
+    <div class="row padding5">
+        <div class="col-sm-2"><label class="labeltext">Min range</label></div>
+        <div class="col-sm-9">
+            <input class="userinput form-control" formControlName="minvalue" id="minvalue" type="text" placeholder="min value" autocomplete="off" />
+            <div class="errormsg" *ngIf="generationForm.controls?.minvalue.invalid && generationForm.controls?.minvalue.dirty ">
+                <em *ngIf="generationForm.controls?.minvalue.errors?.pattern">Min value must be a number </em>
+                <em *ngIf="generationForm.controls?.minvalue.errors?.required">
+                    Min value is required
+                </em>
+            </div>
+        </div>
+    </div>
+    <div class="row padding5">
+        <div class="col-sm-2"><label class="labeltext">Max range</label></div>
+        <div class="col-sm-9">
+            <input class="userinput form-control" formControlName="maxvalue" id="maxvalue" type="text" placeholder="max value" autocomplete="off" />
+            <div class="errormsg" *ngIf="generationForm.controls?.maxvalue.invalid && generationForm.controls?.maxvalue.dirty ">
+                <em *ngIf="generationForm.controls?.maxvalue.errors?.required">Max value is required</em>
+                <em *ngIf="generationForm.controls?.maxvalue.errors?.pattern">Max value must be a number</em>
+            </div>
+        </div>
+    </div>
+    <div class="row padding5">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-9">
+            <button class="btn btn-primary btn-sm" [disabled]="generationForm.invalid">Generate Guess</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,2 @@
+﻿export const CREATE_GUESS = 'CREATE_GUESS';
+export const PROCESS_GUESS = 'PROCESS_GUESS'; 

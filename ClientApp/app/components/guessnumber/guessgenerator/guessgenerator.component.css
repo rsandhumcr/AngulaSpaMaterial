@@ -1,0 +1,22 @@
+﻿example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.generatesection {
+    margin-top: 10px;
+}
+
+md-error {
+    font-size: 0.7em;
+    color: red;
+}
+
+.userinput {
+    font-size: 1.8em;
+}

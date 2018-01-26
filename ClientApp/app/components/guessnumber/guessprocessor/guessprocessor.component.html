@@ -1,0 +1,30 @@
+﻿<form [formGroup]="guessForm" class="" (ngSubmit)="onProcessGuess()" autocomplete="off" novalidate="">
+    <mat-form-field class="example-full-width">
+        <input class="guesstext" formControlName="guessvalue" id="guessvalue" matInput type="text" placeholder="Enter your guess" />
+        <div *ngIf="guessForm.controls?.guessvalue.invalid && guessForm.controls?.guessvalue.dirty ">
+            <md-error *ngIf="guessForm.controls?.guessvalue.errors?.required">Max value is required</md-error>
+            <md-error *ngIf="guessForm.controls?.guessvalue.errors?.pattern">Max value must be a number</md-error>
+        </div>
+    </mat-form-field>
+
+</form>
+<div class="padding5">
+    <button [disabled]="guessForm.invalid" mat-raised-button color="primary" (click)="onProcessGuess()">Process Number</button>
+    <button mat-raised-button color="primary" (click)="onClear()">Clear</button>
+</div>
+<div class="padding5">
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(1)">+1</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(2)">+2</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(5)">+5</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(10)">+10</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(20)">+20</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(50)">+50</button>
+</div>
+<div class="padding5">
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(-1)">-1</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(-2)">-2</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(-5)">-5</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(-10)">-10</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(-20)">-20</button>
+    <button mat-raised-button color="accent" (click)="onCalculateGuess(-50)">-50</button>
+</div>

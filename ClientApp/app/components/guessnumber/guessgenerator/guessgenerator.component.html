@@ -1,0 +1,24 @@
+﻿<form [formGroup]="generationForm" class="" (ngSubmit)="processNumber()" novalidate="" >
+    <mat-form-field class="example-full-width">
+        <input class="userinput" formControlName="username" id="username" matInput type="text" placeholder="Enter your name" />
+        <div *ngIf="generationForm.controls?.username.invalid && generationForm.controls?.username.dirty ">
+            <md-error *ngIf="generationForm.controls?.username.errors?.required">Username is required</md-error>
+        </div>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input class="userinput" formControlName="minvalue" id="minvalue" matInput type="text" placeholder="min value" autocomplete="off" />
+        <div *ngIf="generationForm.controls?.minvalue.invalid && generationForm.controls?.minvalue.dirty ">
+            <md-error *ngIf="generationForm.controls?.minvalue.errors?.pattern">Min value must be a number </md-error>
+            <md-error *ngIf="generationForm.controls?.minvalue.errors?.required">Min value is required
+            </md-error>                
+        </div>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input class="userinput" formControlName="maxvalue" id="maxvalue" matInput type="text" placeholder="max value" autocomplete="off" />
+        <div *ngIf="generationForm.controls?.maxvalue.invalid && generationForm.controls?.maxvalue.dirty ">
+            <md-error *ngIf="generationForm.controls?.maxvalue.errors?.required">Max value is required</md-error>
+            <md-error *ngIf="generationForm.controls?.maxvalue.errors?.pattern">Max value must be a number</md-error>
+        </div>
+    </mat-form-field>
+    <button [disabled]="generationForm.invalid" mat-raised-button color="primary">Generate Guess</button>
+</form>

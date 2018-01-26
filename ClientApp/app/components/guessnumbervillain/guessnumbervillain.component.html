@@ -1,0 +1,23 @@
+﻿<img class="imgsrc" [src]="techicon" alt="Bootstrap" />
+<h1>Number Guesser Bootstrap</h1>
+<div *ngIf="!playing" class="generatesection">
+    <div>Enter your name, the number range and click the 'Generate Guess' button to start the game.</div>
+    <app-guessgeneratorvillain [username]="guessData?.playersname" [minvalue]="minvalue" [maxvalue]="maxvalue" (processentry)="processentry($event)"></app-guessgeneratorvillain>
+</div>
+<div class="status" [ngClass]="statuschanger()" >{{guessData?.message}}</div>
+<div>
+    <span>Tries : {{guessData?.numberoftries}},</span>
+    <span>Lowest guess : {{guessData?.lowerhighguess}},</span>
+    <span>Highest guess : {{guessData?.upperlowguess}}</span>
+</div>
+    <div *ngIf="playing">
+        <div>
+            <span class="playername">{{guessData?.playersname}}</span>
+        </div>
+        <app-guessprocessorvillain [guess]="0"
+                            (processguess)="processguess($event)">
+
+        </app-guessprocessorvillain>
+    </div>
+
+

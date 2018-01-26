@@ -1,0 +1,40 @@
+﻿<form [formGroup]="guessForm" class="" (ngSubmit)="onProcessGuess()" autocomplete="off" novalidate="">
+    <div class="row">
+        <div class="col-sm-9">
+            <input class="guesstext" formControlName="guessvalue" id="guessvalue" type="text" placeholder="Enter your guess" />
+            <div class="errormsg" *ngIf="guessForm.controls?.guessvalue.invalid && guessForm.controls?.guessvalue.dirty ">
+                <em class="errormsg" *ngIf="guessForm.controls?.guessvalue.errors?.required">Max value is required</em>
+                <em class="errormsg" *ngIf="guessForm.controls?.guessvalue.errors?.pattern">Max value must be a number</em>
+            </div>
+
+        </div>
+    </div>
+</form>
+<div class="row padding5">
+    <div class="col-sm-10">
+        <button class="btn btn-success btn-sm" [disabled]="guessForm.invalid" (click)="onProcessGuess()">Process Number</button>
+        <button class="btn btn-warning btn-sm" (click)="onClear()">Clear</button>
+
+    </div>
+</div>
+<div class="row padding5">
+    <div class="col-sm-10">
+        <button class="btn btn-primary btn-sm butcalculate" (click)="onCalculateGuess(1)">+1</button>
+        <button class="btn btn-primary btn-sm butcalculate" (click)="onCalculateGuess(2)">+2</button>
+        <button class="btn btn-primary btn-sm butcalculate" (click)="onCalculateGuess(5)">+5</button>
+        <button class="btn btn-primary btn-sm butcalculate" (click)="onCalculateGuess(10)">+10</button>
+        <button class="btn btn-primary btn-sm butcalculate" (click)="onCalculateGuess(20)">+20</button>
+        <button class="btn btn-primary btn-sm butcalculate" (click)="onCalculateGuess(50)">+50</button>
+    </div>
+</div>
+<div class="row padding5">
+    <div class="col-sm-10">
+        <button class="btn btn-info btn-sm butcalculate" (click)="onCalculateGuess(-1)">-1</button>
+        <button class="btn btn-info btn-sm butcalculate" (click)="onCalculateGuess(-2)">-2</button>
+        <button class="btn btn-info btn-sm butcalculate" (click)="onCalculateGuess(-5)">-5</button>
+        <button class="btn btn-info btn-sm butcalculate" (click)="onCalculateGuess(-10)">-10</button>
+        <button class="btn btn-info btn-sm butcalculate" (click)="onCalculateGuess(-20)">-20</button>
+        <button class="btn btn-info btn-sm butcalculate" (click)="onCalculateGuess(-50)">-50</button>
+    </div>
+</div>
+
